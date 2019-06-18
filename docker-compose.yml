@@ -1,0 +1,13 @@
+version: '3'
+services:
+  builder:
+    build: .
+    privileged: true
+    volumes:
+      - workspace_volume:/chromiumos
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    working_dir: /chromiumos
+
+volumes:
+  workspace_volume:
+    driver: local
