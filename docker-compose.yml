@@ -8,6 +8,14 @@ services:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     working_dir: /chromiumos
 
+  opengrok:
+    image: opengrok/docker
+    volumes:
+      - workspace_volume:/opengrok/src:ro
+    environment:
+      - REINDEX=0
+    command: echo run /scripts/start.sh manually for launching
+
 volumes:
   workspace_volume:
     driver: local
